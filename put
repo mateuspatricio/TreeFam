@@ -1,0 +1,4 @@
+NOW=$(date +"%d%m%Y")
+git add *
+git commit -m 'commit $NOW'
+git push origin master
