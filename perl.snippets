@@ -33,6 +33,23 @@ snippet DBI_open
 	my $dsn         = "DBI:mysql:database=$database;host=$hostname";
 	my $dbh         = DBI->connect($dsn, $user, $password);
 
+#File Handles
+snippet FILE_read
+	my $${1:file} = "${2:path/file.txt}";
+	open(${3:FILE},$$1) || die "Could not open file:$2";
+	while(<$3>)
+	{
+		${4:# body...}
+	}
+	close($3);
+
+snippet FILE_write
+	my $${1:file} = ">${2:path/file.txt}";
+	open(${3:FILE},$$1) || die "Could not open file:$2";
+	print $3 ${4:# body...};
+	close($3);
+
+
 # Numerical sort
 snippet num
 	sub num { $a <=> $b }
